@@ -3,6 +3,7 @@ from database import engine, Base
 from routers import users, user_profile, post, task_messages_router
 from fastapi.security import HTTPBearer, HTTPAuthorizationCredentials
 from logger import logger
+from scheduler.scheduler import start_scheduler
 
 app = FastAPI()
 Base.metadata.create_all(bind=engine)  # Create tables in DB
@@ -12,6 +13,8 @@ app.include_router(users.router)
 app.include_router(user_profile.router)
 app.include_router(post.router)
 app.include_router(task_messages_router.router)
+
+start_scheduler()
 # @app.get("/")
 # def home():
 #     logger.info("Root endpoint called")

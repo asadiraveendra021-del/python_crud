@@ -1,4 +1,6 @@
+# schemas/post.py
 from pydantic import BaseModel
+from typing import Optional
 
 class PostCreate(BaseModel):
     title: str
@@ -8,7 +10,8 @@ class PostResponse(BaseModel):
     id: int
     title: str
     content: str
-    user_id: int  # links to the user who created the post
+    image_filename: Optional[str] = None
+    user_id: int
 
     class Config:
         orm_mode = True
