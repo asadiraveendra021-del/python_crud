@@ -12,3 +12,11 @@ class Post(Base):
     user_id = Column(Integer, ForeignKey("users.id"))
 
     author = relationship("User", back_populates="posts")
+
+     # 🔥 One-to-One → A Post has exactly one EmailQueue record
+    email_queue = relationship(
+        "EmailQueue",
+        back_populates="post",
+        uselist=False,           # important: tells SQLAlchemy this is one-to-one
+        cascade="all, delete-orphan"
+    )

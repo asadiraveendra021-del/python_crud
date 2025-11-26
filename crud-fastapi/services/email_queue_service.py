@@ -21,7 +21,9 @@ class EmailQueueService:
                 sent = EmailSender.send_email(
                     to_email=email.to_email,
                     subject=email.subject,
-                    body=email.body
+                    body=email.body,
+                    db=db,
+                    post_id=email.post_id
                 )
 
                 if sent:

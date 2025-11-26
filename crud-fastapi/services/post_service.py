@@ -37,7 +37,7 @@ class PostService:
         # Queue an email for sending
         email_subject = "Your post has been created"
         email_body = f"Hello {user.username},\n\nYour new post titled '{new_post.title}' was created successfully."
-        email_job = EmailQueue(to_email=user.email, subject=email_subject, body=email_body, status="PENDING")
+        email_job = EmailQueue(to_email=user.email, subject=email_subject, body=email_body, status="PENDING",post_id=new_post.id)
         db.add(email_job)
         db.commit()
 
