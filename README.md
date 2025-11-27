@@ -119,3 +119,11 @@ This project is a REST API built with FastAPI and SQLAlchemy. It provides user m
 * **Database**: Session and engine management.
 
 This structure ensures a clean, modular, and scalable FastAPI application that is easy to maintain and extend.
+
+
+### 9. Email Sending and Scheduling 
+* I have implemented Email Sending and Scheduler to send emails as well. when ever a post is saved created then i am creating a row in email_Queue table with to email address , email body and the status so that for every one min a scheduler will trigger and fetch teh ppending Emails from Email Queue table and send he mail as soon as email sent successfully then he status marked as Sent 
+
+### 10. External API Implementation
+
+* I have implemented External API to retrive teh hotel Data and save that data in our DB by creating Data base tables . while writing code also i have added comments and loggers for easy undertsnading 
